@@ -1,21 +1,33 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+/* eslint-disable react/style-prop-object */
+import React from 'react'
+import { StatusBar } from 'expo-status-bar'
+import { SafeAreaView, View, Text } from 'react-native'
+import useTailwind from 'hooks/useTailwind'
 
-export default function App() {
+const App = () => {
+  const { tw, sm, md, lg, xl } = useTailwind()
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+    <SafeAreaView>
+      <View style={tw('pt-12 items-center')}>
+        <View
+          style={tw(
+            'bg-blue-200 px-3 py-1 rounded-full',
+            {
+              sm: 'bg-black',
+              md: 'bg-yellow-500',
+              lg: 'bg-purple-400',
+              xl: 'bg-blue-800',
+            },
+            { sm, md, lg, xl }
+          )}>
+          <Text style={tw('text-white font-semibold')}>Hello Tailwind</Text>
+        </View>
+      </View>
+
       <StatusBar style="auto" />
-    </View>
-  );
+    </SafeAreaView>
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App
