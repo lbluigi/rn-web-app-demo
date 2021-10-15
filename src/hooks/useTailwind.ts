@@ -1,12 +1,6 @@
 import tailwind, { getColor } from 'tailwind-rn'
 import { useMediaQuery } from 'react-responsive'
 
-// import { create } from 'tailwind-rn';
-// import styles from '../../styles.json';
-
-// const { tailwind: tw, getColor } = create(styles);
-// export { tw, getColor };
-
 interface breakpointsClassNamesInterface {
   sm?: string
   md?: string
